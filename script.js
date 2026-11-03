@@ -51,3 +51,16 @@ const generalAverage = students.reduce(
 ) / students.length;
 
 console.log("General Average:", generalAverage);
+const studentsDiv = document.getElementById("students");
+
+studentsDiv.innerHTML = students.map(student => `
+    <div style="background:white; padding:15px; margin:10px; border-radius:10px;">
+        <h3>${student.name}</h3>
+        <p>ID: ${student.id}</p>
+        <p>Average: ${student.getAverage().toFixed(2)}</p>
+        <p>Status: ${student.getStatus()}</p>
+    </div>
+`).join("");
+
+document.getElementById("average").innerText =
+    "General Average: " + generalAverage.toFixed(2);
